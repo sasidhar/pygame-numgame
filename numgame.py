@@ -3,8 +3,9 @@ from pygame.locals import *
 
 from constants import GAME_HEIGHT, GAME_WIDTH, GAME_BACKGROUND
 from board import drawBoard
- 
+
 pygame.init()
+
 
 displaysurface = pygame.display.set_mode((GAME_WIDTH, GAME_HEIGHT))
 displaysurface.fill(GAME_BACKGROUND)
@@ -22,7 +23,18 @@ while run:
             run =False
 
         if event.type == pygame.KEYDOWN:
-            pass
+            if event.key == pygame.K_LEFT:
+                print("Left")
+
+            if event.key == pygame.K_RIGHT:
+                print("Right")
+
+            if event.key == pygame.K_UP:
+                print("Up")
+
+            if event.key == pygame.K_DOWN:
+                print("Down")
+
 
 
 pygame.quit()
