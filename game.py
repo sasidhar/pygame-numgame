@@ -2,6 +2,7 @@ import pygame
 from random import choice
 
 from buttonSprite import Button
+from gameCompletionSprite import GameCompletion
 
 
 from constants import (
@@ -19,6 +20,8 @@ from constants import (
 )
 
 buttonsGroup = pygame.sprite.Group()
+layers = pygame.sprite.LayeredUpdates()
+layers.add(buttonsGroup)
 
 
 def checkGameCompletion():
@@ -78,16 +81,11 @@ def updateBoard(displaysurface, displace=0):
 
 
 def drawGameCompletion(displaysurface):
-    x = 0
-    y = (SCREEN_HEIGHT / 2) - GAME_DONE_HEIGHT
-    width = SCREEN_WIDTH - 2 * GAME_DONE_PADDING
-    height = GAME_DONE_HEIGHT
-
-    pygame.draw.rect(displaysurface, BUTTON_COLOR, (x, y, width, height))
-    font = pygame.font.SysFont("Arial", 25)
-    text = font.render(str("GAME DONE!"), True, BUTTON_TEXT_COLOR)
-    text_rect = text.get_rect(center=(x + width / 2, y + height / 2))
-    displaysurface.blit(text, text_rect)
+    gameCompletion = GameCompletion()
+    gameCompletionGroup = pygame.sprite.Group()
+    gameCompletionGroup.add(gameCompletion)
+    gameCompletionGroup.draw(displaysurface)
+    layers.add(gameCompletionGroup)
 
 
 def drawBoard(screen):

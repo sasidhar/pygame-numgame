@@ -10,13 +10,12 @@ from constants import (
     GAME_GRID_SIZE,
     SCREEN_WIDTH,
     SCREEN_HEIGHT,
+    BUTTON_CORRECT_COLOR,
 )
 
 
 class Button(pygame.sprite.Sprite):
     def __init__(self, position_index, button_index):
-        print("Test")
-        print(position_index, button_index, button_index + 1)
         pygame.sprite.Sprite.__init__(self)
 
         # Save indices for later use
@@ -43,6 +42,8 @@ class Button(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (b_x, b_y)
 
+        self._layer = 1
+
     def get_position_index(self):
         return self.position_index
 
@@ -53,8 +54,6 @@ class Button(pygame.sprite.Sprite):
         self.position_index = position_index
 
     def update_position(self):
-        print("Update Position")
-        print(self.position_index, self.button_index)
         (b_x, b_y, b_width, b_height) = self.get_positions()
 
         # Position Sprite

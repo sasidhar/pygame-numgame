@@ -9,6 +9,7 @@ from game import (
     buttonsGroup,
     is_position_empty,
     checkGameCompletion,
+    layers,
 )
 
 # Init pygame
@@ -31,9 +32,6 @@ drawBoard(screen)
 run = True
 while run:
     clock.tick(FPS)
-
-    # update sprite group
-    buttonsGroup.update()
 
     # draw sprite group
     buttonsGroup.draw(screen)
@@ -95,14 +93,12 @@ while run:
                                 displace = 1
 
                         if displace != 0:
-                            print("Displace")
-                            print(displace)
                             updateBoard(screen, displace)
                         else:
-                            print("Failing Displace")
-                            print(displace)
+                            pass
 
     # upate display
+    layers.draw(screen)
     pygame.display.flip()
 
 pygame.quit()
