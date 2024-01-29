@@ -1,13 +1,13 @@
 from pygame import Color
 
 ## Screen Constants
-SCREEN_WIDTH = 300
-SCREEN_HEIGHT = 300
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 600
 SCREEN_BACKGROUND = Color(255, 255, 255)
 
 ## Game Constants
 GAME_TITLE = "NumGame 1.0"
-GAME_GRID_SIZE = 3
+GAME_GRID_SIZE = 5
 
 ## Button Constants
 BUTTON_PADDING = 5
